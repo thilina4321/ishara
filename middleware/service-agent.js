@@ -4,7 +4,7 @@ const Agent = require("../model/service-agent");
 const agent = async (req, res, next) => {
   const token = req.header("Authorization").replace("Bearer ", "");
   try {
-    const verifiedToken = await jwt.verify(token, "hasantha");
+    const verifiedToken = await jwt.verify(token, "ishara");
     const user = await Agent.findOne({
       _id: verifiedToken.id,
       "tokens.token": token,

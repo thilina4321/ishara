@@ -6,10 +6,11 @@ const Auth = require('../middleware/service-agent')
 
 router.post('/login', controller.login)
 router.post('/record',Auth, controller.createRecord)
-router.patch('/edit',Auth, controller.editRecord)
-router.delete('/delete',Auth, controller.deleteRecord)
-router.get('/appintmants',Auth, controller.appointments)
-router.post('/decision',Auth, controller.appointmentDecision)
-
+router.patch('/edit/:id',Auth, controller.editRecord)
+router.delete('/delete/:id',Auth, controller.deleteRecord)
+// router.get('/upcomming',Auth, controller.showupCommingAppoinments)
+router.get('/upcomming', controller.showupCommingAppoinments)
+router.get('/search',Auth, controller.searchAppointment)
+router.post('/appo-status',Auth, controller.approveOrRejectAppointment)
 
 module.exports = router

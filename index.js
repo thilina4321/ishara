@@ -17,7 +17,7 @@ app.use('/customer', customer)
 
 app.listen(port, () => {
   mongoose
-    .connect("mongodb://127.0.0.1:27017/hasantha", {
+    .connect("mongodb://127.0.0.1:27017/ishara", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })

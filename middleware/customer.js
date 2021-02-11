@@ -4,7 +4,7 @@ const Customer = require("../model/customer");
 const customer = async (req, res, next) => {
   const token = req.header("Authorization").replace("Bearer ", "");
   try {
-    const verifiedToken = await jwt.verify(token, "hasantha");
+    const verifiedToken = await jwt.verify(token, "ishara");
     const user = await Customer.findOne({
       _id: verifiedToken.id,
       "tokens.token": token,

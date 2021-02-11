@@ -6,10 +6,16 @@ const Auth = require('../middleware/super-admin')
 
 router.post('/signup', controller.registor)
 router.post('/login', controller.login)
-router.get('/customer',Auth, controller.getCustomers)
-router.get('/vehicles',Auth, controller.getVehicles)
-router.get('/records',Auth, controller.getServiceRecords)
-router.post('/agent',Auth, controller.serviceAgent) 
+
+router.post('/customer-add',Auth, controller.addCustomer)
+router.patch('/customer-edit/:id',Auth, controller.editCustomer)
+
+router.post('/vehicles-add',Auth, controller.addVehicle)
+router.patch('/vehicle-edit/:id',Auth, controller.editVehicle)
+
+router.post('/agent-add',Auth, controller.addServiceAgent)
+router.post('/edit-record',Auth, controller.editServiceRecords)
+router.get('/delete-record',Auth, controller.deleteServiceRecords)
 
 
 module.exports = router

@@ -10,13 +10,11 @@ const agentSchema = new Schema({
   password: {
     type: String,
   },
-  serviceAgentName: {
+  userName: {
     type: String,
   },
-  role:{type:String},
-  serviceAgentTeleNumber: String,
-  serviceAgentAddress: String,
-  serviceAgentNIC: String,
+  role:{type:String, default:'SERVICE_AGENT'},
+  
   tokens:[
     {token:String}
   ]
@@ -56,7 +54,7 @@ agentSchema.statics.loginWithEmailAndPassword = async (credential) => {
     const user = this;
   
     try {
-      const token = jwt.sign({ id: user._id }, "hasantha", {
+      const token = jwt.sign({ id: user._id }, "ishara", {
         expiresIn: "1h",
       });
       user.tokens = user.tokens.concat({ token });
