@@ -109,7 +109,7 @@ exports.editServiceRecords = async (req, res) => {
   const id = req.params.id;
   try {
     const records = await ServiceRecord.findByIdAndUpdate(
-      is,
+      id,
       { ...serviceData },
       {
         runValidators: true,
@@ -126,6 +126,7 @@ exports.deleteServiceRecords = async (req, res) => {
   const id = req.params.id;
   try {
     const record = await ServiceRecord.findByIdAndDelete(id);
+    res.send({record})
   } catch (error) {
     res.status(500).send({ error: error.message });
   }
