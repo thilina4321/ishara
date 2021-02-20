@@ -28,12 +28,12 @@ customerSchema.statics.loginWithEmailAndPassword = async (credential) => {
   try {
     const user = await Customer.findOne({ email: credential.email });
     if (!user) {
-      throw new Error("Loging Error");
+      return {error:"Invalid email "}
     }
 
     const compare = await bcrypt.compare(credential.password, user.password);
     if (!compare) {
-      throw new Error("Password is not matched");
+      return {error:"Password not matched "}
     }
 
     return { user };

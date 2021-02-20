@@ -24,13 +24,13 @@ agentSchema.statics.loginWithEmailAndPassword = async (credential) => {
   try {
     const user = await ServiceAgent.findOne({ email: credential.email });
     if (!user) {
-      throw new Error("Loging Error");
+      return {error:"Invalid email "}
     }
 
     console.log(user);
     const compare = await bcrypt.compare(credential.password, user.password);
     if (!compare) {
-      throw new Error("Password is not matched");
+      return {error:"Password not matched "}
     }
   
     return {user};
