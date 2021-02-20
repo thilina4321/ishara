@@ -11,7 +11,7 @@ router.post('/add-vehicle',Auth, controller.addVehicle)
 router.patch('/edit/:id',Auth, controller.editVehicle)
 router.delete('/delete/:id',Auth, controller.deleteVehicle)
 router.post('/appointment',Auth, controller.createAppointment)
-router.get('/view-record',Auth, controller.viewServiceRecords)
+router.get('/view-record/:id',Auth, controller.viewServiceRecords)
 
 module.exports = router
 
