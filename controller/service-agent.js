@@ -65,7 +65,7 @@ exports.deleteRecord = async (req, res) => {
 };
 
 exports.approveOrRejectAppointment = async (req, res) => {
-  const appointmentData = rea.body;
+  const appointmentData = req.body;
   try {
     const appointment = await Appointment.findByIdAndUpdate(
       appointmentData.id,
