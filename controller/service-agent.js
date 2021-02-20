@@ -65,11 +65,11 @@ exports.deleteRecord = async (req, res) => {
 };
 
 exports.approveOrRejectAppointment = async (req, res) => {
-  const appointmentData = req.body;
+  const {id,status} = req.body;
   try {
     const appointment = await Appointment.findByIdAndUpdate(
-      appointmentData.id,
-      { ...appointmentData }
+      id,
+      { status }
     );
     res.send({ appointment });
   } catch (error) {
