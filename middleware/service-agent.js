@@ -14,7 +14,7 @@ const agent = async (req, res, next) => {
       throw new Error('No access')
     }
 
-    if(user.role != 'AGENT'){
+    if(user.role != 'SERVICE_AGENT'){
         throw new Error('Access not allowed')
     }
 
